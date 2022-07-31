@@ -1,8 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
+import { useDispatch } from 'react-redux';
+import { restart } from '../logic/store';
 import { StyleSheet, Text, View, Pressable, Platform } from 'react-native';
 
 export default function MainMenu({ navigation }) {
+  const dispatch = useDispatch();
+
   function play(players) {
+    dispatch(restart());
     navigation.navigate('Game', { players });
   }
 
